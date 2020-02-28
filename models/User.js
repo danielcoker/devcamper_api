@@ -38,7 +38,7 @@ const UserSchema = new mongoose.Schema({
 
 // Encrypt password using brcryptjs
 UserSchema.pre('save', async function(next) {
-  if (!this.isModified('passowrd')) {
+  if (!this.isModified('password')) {
     next();
   }
   const salt = await bycrypt.genSalt(10);
